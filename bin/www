@@ -1,0 +1,154 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var debug = require('debug')('tIMDer');
+var app = require('../app');
+var http = require('http');
+var User = require('../models/user');
+var Dates = require('../models/date');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+  console.log('user connected');
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+
+  socket.on('updatePictures', function(data){
+    User.findOneAndUpdate({username: data.user},{pictures: [data.avatar, data.work1, data.work2, data.work3]}, function(err, b){
+          console.log('b', b);
+    });
+  });
+
+  socket.on('updateProfile', function(data){
+    console.log(data);
+    User.findOneAndUpdate({username: data.user}, {firstName: data.firstname, lastName: data.lastname, imdTraject: data.imdtraject, skill: data.skill, portfolio: data.portfolio, bio: data.bio}, function(err, b){
+      console.log('b', b);
+    });
+  });
+
+  socket.on('date', function(data){
+    Dates.create({studentName: data.student, companyName: data.company}, function(err, b){
+      console.log('b', b);
+      io.sockets.emit('update', b);
+    });
+  });
+
+  socket.on('findDates', function(data){
+    Dates.find().exec(function(err, b){
+      console.log('b', b);
+      socket.emit('printDate', b);
+    });
+  });
+
+  var random = 0;
+  socket.on('randomize', function(){
+    User.find({}, function(err, c){
+      socket.emit('randomUser', c);
+    });
+  });
+
+  socket.on('deleteDates', function(){
+    Dates.remove(function(err, b){
+      console.log(b);
+    });
+  });
+
+  socket.on('deleteUsers', function(){
+    User.remove({admin: false}, function(err, b){
+      console.log(b);
+    });
+  });
+
+  socket.on('findUserDate', function(data){
+    Dates.find({studentName: data.user}, function(err, b){
+      console.log(b);
+      socket.emit('printUserDate', b);
+    });
+  });
+});
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+  console.log("Server running on localhost:3000");
+}

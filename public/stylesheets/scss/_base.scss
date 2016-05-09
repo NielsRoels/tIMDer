@@ -1,0 +1,236 @@
+$bgc: #333;
+
+.animated {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+  animation-delay: 2s;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+}
+
+.animated2 {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+}
+
+.animated3 {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+  animation-delay: 2s;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+}
+
+.animated4 {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+
+}
+
+.animated5 {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-delay: 2s; /* Chrome, Safari, Opera */
+  animation-delay: 2s;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+}
+
+.animated6 {
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+
+}
+
+
+
+@-webkit-keyframes shake {
+  0%, 100% {-webkit-transform: translateX(0);}
+  10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+  20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
+}
+@keyframes shake {
+  0%, 100% {transform: translateX(0);}
+  10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+  20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
+}
+
+
+@-webkit-keyframes slide {
+  0%, 100% {-webkit-transform: translateY(0);}
+  10%, 30%, 50%, 70%, 90% {-webkit-transform: translateY(-10px);}
+  20%, 40%, 60%, 80% {-webkit-transform: translateY(10px);}
+}
+@keyframes slide {
+  0%, 100% {transform: translateY(0);}
+  10%, 30%, 50%, 70%, 90% {transform: translateY(-10px);}
+  20%, 40%, 60%, 80% {transform: translateY(10px);}
+}
+.slide {
+  -webkit-animation-name: slide;
+  animation-name: slide;
+}
+
+@-webkit-keyframes slider {
+  0%, 100% {-webkit-transform: translateX(0);}
+  10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-10px);}
+  20%, 40%, 60%, 80% {-webkit-transform: translateX(10px);}
+}
+@keyframes slider {
+  0%, 100% {transform: translateX(0);}
+  10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+  20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+.slider {
+  -webkit-animation-name: slider;
+  animation-name: slider;
+}
+
+body 
+{
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: $bgc;
+}
+
+a 
+{
+  color: #00B7FF;
+}
+
+.btn
+{
+	clear: both;
+	background-color: $bgc;
+	color: white
+}
+
+.btn:hover
+{
+	background-color: white;
+	color: $bgc;
+	border: 1px solid white;
+}
+
+.textcenter
+{
+    margin-left:auto;
+    margin-right:auto;
+    width:500px;
+    margin-top:15%;
+}
+
+.rightwho
+{
+    width:200px;
+    float:left;
+    margin-left:3%;
+    text-align:center;
+}
+
+.leftwho
+{
+    width:200px;
+    float:left;
+    text-align:center;
+}
+
+.border
+{
+    border:solid 2px white;
+}
+
+.logo
+{
+	margin-bottom: 20px;
+}
+
+.centerdiv
+{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .container
+  {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.btn-file
+{
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file]
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.upload-form
+{
+  background-color: $bgc;
+  color: white;
+}
+
+.red
+{
+  color: #c03a28;
+}
+
+.green
+{
+  color:#2cab60;
+}
+
+li
+{
+  list-style-type: none;
+}
+
+.cleared
+{
+  color:#2cab60;
+}

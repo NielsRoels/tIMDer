@@ -1,0 +1,71 @@
+extends ../layout
+
+block content
+	div(class="viewport bgcol1" id="1")
+		div(class='container')
+			div(class='row')
+				div(class="col-md-4 col-md-offset-4 text-center logo")
+					img(src="/images/timdrwhite.svg", alt="tIMDr logo")
+					h1(class='text-center') Work
+			div(class='row')
+				div(class="col-lg-4 col-sm-6 col-xs-12")
+					img(id="workimg1" class="workimg")
+				div(class="col-lg-4 col-sm-6 col-xs-12")
+					img(id="workimg2" class="workimg")
+				div(class="col-lg-4 col-sm-6 col-xs-12")
+					img(id="workimg3" class="workimg")
+		div(class="col-md-12 text-center logo animated4 slide")
+			p Student
+			img(src="/images/arrowDOWN.png", alt="tIMDr logo" )
+	div(class="viewport bgcol2" id="2")
+		div(class='col-md-12 text-center animated3 slide')
+			img(src='/images/arrowUP.png' alt="tIMDr logo")
+			p Work
+		div(id="animated-example")
+				div(class='container')
+					div(class="col-md-4 front__block animated5 slider")
+						div(class="front__block--left ")
+							img(src="/images/arrowLEFT.png")
+					div(class='col-md-4 front__block')
+						div(class="front__block--inside")
+							div(class="row")
+								div(class='col-md-12')
+									img(id="slideAvatar" src="" alt="" class="profile--img")
+									h1(id="slideName" class='text-center')
+									h2(id="slideTraject" class='text-center')
+					div(class="col-md-4 front__block animated6 slider")
+						div(class="front__block--right ")
+							img(src="/images/arrowRIGHT.png")
+		div(class='col-md-12 text-center animated4 slide')
+			p Details
+			img(src="/images/arrowDOWN.png" alt='tIMDr logo')
+	div(class="viewport bgcol3" id="3")
+		div(class="col-md-12 text-center logo animated3 slide")
+			img(src="/images/arrowUP.png", alt="tIMDr logo")
+			p Student
+		div(class='container')
+			div(class='row')
+				div(class="col-md-6")
+					label(for='slide-fn') First name
+					p(id='slide-fn')
+					label(for='slide-ln') Last name
+					p(id='slide-ln')
+					label(for='slide-imdt') IMD trajct
+					p(id='slide-imdt' class="textFont")
+					label(for='slide-fav') Favourite skill
+					p(id='slide-fav')
+					label(for='slide-port') Portfolio
+					p(id='slide-port')
+				div(class="col-md-6")
+					label(for='slide-bio') About me
+					p(id='slide-bio')
+		div(class="col-md-4 col-md-offset-4 text-center logo slide--logo ")
+			img(src="/images/timdrwhite.svg", alt="tIMDr logo")
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+	script(src="/javascripts/script.js")
+	script(src="/socket.io/socket.io.js")
+	script.
+		$(document).ready(function(){
+			var socket = io.connect('http://localhost:3000');
+			socket.emit('randomize', {});
+		});

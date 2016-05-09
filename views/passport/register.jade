@@ -1,0 +1,65 @@
+extends ../layout
+
+block content
+	div(class='container')
+		div(class='row')
+			div(class="col-md-4 col-md-offset-4 text-center logo")
+				img(src="/images/timdrwhite.svg", alt="tIMDr logo")
+				h1 Register now!
+		div(class='row')
+			div(class='col-md-12')
+				form(class='profileform' action='/signup' name="form1" method="POST")
+					div(class="form-group col-md-4")
+						label(for="email") Email *
+						input(type='email', id="email" name='username', class='form-control', placeholder='Email', required, autofocus)
+					div(class="form-group col-md-4")
+						label(for="password") Password *
+						input(type='password', id="password", name='password', class='form-control nomargin', placeholder='Password', required)
+					div(class="form-group col-md-4")
+						label(for="firstName") First name *
+						input(type='text', id="firstName", name='firstName', class='form-control', placeholder='First Name', required)
+					div(class="form-group col-md-4")
+						label(for="lastName") Last name *
+						input(type='text', id="lastName" name='lastName', class='form-control', placeholder='Last Name', required)
+					div(class="form-group col-md-4")
+						label(for="imdTraject") IMD traject
+						select(id="imdTraject" name="imdTraject" class="form-control")
+							option I'm a ...
+							option(value="Webdesign") Webdesigner
+							option(value="Webdevelopment") Webdeveloper
+					div(class="form-group col-md-4")
+						label(for="skill") Favourite skill
+						select(id="skill" name="skill" class="form-control")
+							option My favourite skill is ...
+							option(value="HTML") HTML
+							option(value="CSS") CSS
+							option(value="SASS") SASS
+							option(value="Javascript") Javascript
+							option(value="jQuery") jQuery
+							option(value="Java") Java
+							option(value="Node.js") Node.js
+							option(value="Angular.js") Angular.js
+							option(value="PHP") PHP
+							option(value="ASP.NET") ASP.NET
+							option(value="Drupal") Drupal
+							option(value="Wordpress") Wordpress
+							option(value="Photoshop") Photoshop
+							option(value="Illustrator") Illustrator
+							option(value="Sketch") Sketch
+							option(value="InDesign") InDesign
+							option(value="Flash") Flash
+					div(class="form-group col-md-12")
+						label(for="portfolio") Portfolio
+						input(type='text', id="portfolio" name='portfolio', class='form-control', placeholder='Portfolio link', required)
+					div(class="form-group col-md-12")
+						label(for="bio") About me
+						textarea(id="bio" name="bio" type="text" rows="5" class="form-control" placeholder="About yourself")
+					div(class="form-group col-md-12")
+						button(class='btn btn-default', type='submit') Register now
+			span(class='clearfix')
+			div(id='message')
+				if message
+				h1(class='text-center error-message') #{message}
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+	script(src="/javascripts/script.js")
+	script(src="/socket.io/socket.io.js")

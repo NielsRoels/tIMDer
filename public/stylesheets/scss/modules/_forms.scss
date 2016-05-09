@@ -1,0 +1,71 @@
+.login--block
+{
+	border: 1px solid white;
+	padding: 15px;
+	margin-bottom: 20px;
+	border-radius: 4px;
+
+	h1
+	{
+		margin: 0 0 10px 0;
+		font-weight: bold;
+	}
+
+    p
+    {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+
+    span
+    {
+    	display: block;
+    	margin: 0 0 10px 0;
+    }
+}
+
+.profileform
+{
+	overflow: auto;
+
+	label
+	{
+		color: white;
+		font-size: 20px;
+	}
+
+	input, select, textarea
+	{
+		color: white;
+		background-color: $bgc;
+		border: 1px solid white;
+		margin: 0 0 15px 0;
+		font-size: 16px;
+	}
+
+	#skills
+	{
+		overflow: auto;
+	}
+
+	#message
+	{
+		height: 25px;
+
+		h1
+		{
+			font-size: 14px;
+			color: red;
+		}
+	}
+}
+
+.checkbox-inline+.checkbox-inline
+{
+	margin: 0;
+}
+
+.form-group
+{
+	margin-bottom: 5px;
+}

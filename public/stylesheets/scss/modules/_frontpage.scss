@@ -1,0 +1,45 @@
+.front__block
+{
+	position: relative;
+	height: 100%;
+}
+
+.front__block--inside
+{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	display: block;
+	width: 100%;
+
+	p
+	{
+		font-size: 25px;
+		font-weight: bold;
+	}
+}
+
+.front__block--left
+{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	
+	.front__block--left--arrow
+	{
+		transform: rotate(-90deg);
+	}
+}
+
+.front__block--right
+{
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	transform: translateY(-50%);
+	
+	.front__block--right--arrow
+	{
+		transform: rotate(90deg);
+	}
+}

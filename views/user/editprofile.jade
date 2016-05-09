@@ -1,0 +1,56 @@
+extends ../layout
+
+block content
+	div(class="container")
+		div(class="row")
+			div(class="col-sm-6 col-md-4 col-md-offset-4")
+				div(id="user")
+					h1(class="text-center login-title") Welcome #{user.firstName}. Check your details below:
+			div(class="col-md-12")
+				form(class='profileform' id="editForm")
+					input(name="usernameEdit" id="usernameEdit" type="hidden" value="#{user.username}")
+					div(class='col-md-6')
+						label(for='firstnameEdit') First name
+						input(id='firstnameEdit' name="firstnameEdit" type="text" class="form-control" value="#{user.firstName}" required)
+					div(class='col-md-6')
+						label(for='lastnameEdit') Last name
+						input(id='lastnameEdit' name="lastnameEdit" type="text" class="form-control" value="#{user.lastName}" required)
+					div(class='col-md-6')
+						label(for='imdtrajectEdit') IMD traject
+						select(id='imdtrajectEdit' name="imdtrajectEdit" class="form-control")
+							option I'm a ...
+							option(id="opt1" value="Webdesign") Webdesign
+							option(id="opt2" value="Webdevelopment") Webdevelopment
+					div(class="col-md-6")
+						label(for="skillEdit") Favourite skill
+						select(id="skillEdit" name="skillEdit" class="form-control")
+							option My favourite skill is ...
+							option(value="HTML") HTML
+							option(value="CSS") CSS
+							option(value="SASS") SASS
+							option(value="Javascript") Javascript
+							option(value="jQuery") jQuery
+							option(value="Java") Java
+							option(value="Node.js") Node.js
+							option(value="Angular.js") Angular.js
+							option(value="PHP") PHP
+							option(value="ASP.NET") ASP.NET
+							option(value="Drupal") Drupal
+							option(value="Wordpress") Wordpress
+							option(value="Photoshop") Photoshop
+							option(value="Illustrator") Illustrator
+							option(value="Sketch") Sketch
+							option(value="InDesign") InDesign
+							option(value="Flash") Flash
+					div(class='col-md-12')
+						label(for='portfolioEdit') Portfolio
+						input(id='portfolioEdit' name="portfolioEdit" type="text" class="form-control" value="#{user.portfolio}" required)
+					div(class='col-md-12')
+						label(for='bioEdit') About me
+						textarea(id='bioEdit' name="bioEdit" type="text" rows="5" class="form-control" required) #{user.bio}
+					div(class="form-group col-md-12")
+						button(class='btn btn-default' id="editFormbtn" type='submit') Edit now
+
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+	script(src="/javascripts/script.js")
+	script(src="/socket.io/socket.io.js")

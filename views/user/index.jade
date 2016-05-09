@@ -1,0 +1,54 @@
+extends ../layout
+
+block content
+	div(class='container')
+		div(class='row')
+			div(class="col-md-4 col-md-offset-4 text-center logo")
+				img(src="/images/timdrwhite.svg", alt="tIMDr logo")
+				h1(class='text-center') User actions
+		div(class='row equal')
+			if user.admin == false
+				div(class='col-md-4 col-ms-6 col-xs-6')
+					div(class='login--block login--block__user')
+						h1 Profile
+						p View your own tIMDr-profile and see what companies will read about you.
+						a(href='/profile' class='btn btn-default') View profile
+				div(class='col-md-4 col-ms-6 col-xs-6')
+					div(class='login--block login--block__user')
+						h1 Edit
+						p Edit your tIMDr-profile. Add information you didn't provide before or correct incorrect information.
+						a(href='/edit' class='btn btn-default') Edit profile
+				div(class='col-md-4 col-ms-6 col-xs-6')
+					div(class='login--block login--block__user')
+						h1 Dates
+						p Find out who wants to date you here.
+						input(id="dateFirstname" type="hidden" value="#{user.firstName}")
+						input(id="dateLastname" type="hidden" value="#{user.lastName}")
+						a(id="datesBtn" href='/userdate' class='btn btn-default') View dates
+			else
+				div(class='col-md-3 col-ms-4 col-xs-12')
+					div(class='login--block login--block__user')
+						h1 Profile
+						p View your own tIMDr-profile and see what companies will read about you.
+						a(href='/profile' class='btn btn-default') View profile
+				div(class='col-md-3 col-ms-4 col-xs-12')
+					div(class='login--block login--block__user')
+						h1 Edit
+						p Edit your tIMDr-profile. Add information you didn't provide before or correct incorrect information.
+						a(href='/edit' class='btn btn-default') Edit profile
+				div(class='col-md-3 col-ms-4 col-xs-12')
+					div(class='login--block login--block__user')
+						h1 Dates
+						p Find out who wants to date you here.
+						input(id="dateFirstname" type="hidden" value="#{user.firstName}")
+						input(id="dateLastname" type="hidden" value="#{user.lastName}")
+						a(id="datesBtn" href='/userdate' class='btn btn-default') View dates
+				div(class='col-md-3 col-ms-4 col-xs-12')
+					div(class='login--block login--block__user')
+						h1 Admin dashboard
+						p Admins can clear date and user records here or add other admins.
+						a(href='/admin' class='btn btn-default') View dates
+
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+	script(src="/javascripts/script.js")
+	script(src="/socket.io/socket.io.js")

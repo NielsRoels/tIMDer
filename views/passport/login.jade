@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+	div(class='container')
+		div(class='row')
+			div(class="col-md-4 col-md-offset-4 text-center logo")
+				img(src="/images/timdrwhite.svg", alt="tIMDr logo")
+				h1 User actions
+		div(class='row')
+			div(class='col-md-6')
+				div(class='login--block')
+					h1 Sign in to tIMDer
+					form(class='profileform', action='/login', method="POST")
+						label(for="username") Email
+						input(type='email', id="username", name='username', class='form-control', placeholder='Email', required, autofocus)
+						label(for="password") Password
+						input(type='password', id="password", name='password', class='form-control', placeholder='Password', required)
+						div(id='message')
+							if message
+								h1 #{message}
+						button(class='btn btn-default', type='submit') Sign in
+			div(class='col-md-6')
+				div(class='login--block')
+					h1 IMD student, but not yet registered?
+					p Make your profile now and show your skills, maybe you'll convince one of the visiting companies!
+					a(href="/signup" class="btn btn-default") Register now!
+
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+	script(src="/javascripts/script.js")
+	script(src="/socket.io/socket.io.js")

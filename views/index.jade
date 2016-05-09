@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	div(class="col-md-4 col-ms-4 col-xs-3 front__block")
+		div(class="front__block--left animated shake")
+			img(class="front__block--left--arrow " src="/images/arrowUP.png")
+	div(class="col-md-4 col-ms-4 col-xs-6 text-center front__block")
+		div(class="front__block--inside")
+			img(src="/images/timdrwhite.svg", alt="tIMDr logo")
+			p Start swiping and date our students!
+			a(href='/dates' class="btn btn-default") View all dates
+	div(class="col-md-4 col-ms-4 col-xs-3 front__block")
+		div(class="front__block--right animated2 shake")
+			img(class="front__block--right--arrow" src="/images/arrowUP.png")
+	
+	script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js")
+	script(src="/javascripts/script.js")
+	script(src="/socket.io/socket.io.js")
